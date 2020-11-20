@@ -5,7 +5,7 @@ const UserRow = (props) => {
     const name = user.name.first + " " + user.name.last;
     const phone = user.phone;
     const email = user.email;
-    const dob = user.dob.date;
+    const dob = user.dob.date.substring(0, 10);
 
     return (
         <tr>
