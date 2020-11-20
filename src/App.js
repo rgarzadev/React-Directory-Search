@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import API from "./utils/API";
 import './App.css';
 
 import Search from "./components/Search";
 import Header from "./components/Header";
 import Table from "./components/Table";
+import Wrapper from "./components/Wrapper";
 
 function App() {
-
   const [users, setUsers] = useState([]);
   const [originalUsers, setOriginalUsers] = useState([]);
 
   useEffect(() => {
-    axios.get("https://randomuser.me/api/?results=50&nat=us")
-      .then((res) => {
-        setOriginalUsers(res.data.results);
-        setUsers(res.data.results);
-      });
+    API.getUsers().then(results => {
+      setOriginalUsers(results.data.results);
+      setUsers(results.data.results);
+    });    
   }, []);
 
   let sortByName = () => {
@@ -29,18 +28,18 @@ function App() {
   let handleInputChange = (e) => {
     let searchTerm = e.target.value.toLowerCase();
     let filteredUsers = originalUsers.filter(user => user.name.last.toLowerCase().includes(searchTerm));
-    setUsers([...filteredUsers]);
-  }
+    setUsers(filteredUsers);
+  };
 
   return (
     <div className="App">
       <Header headerText="Employee Directory" headerSubText="Search and sort employees by last name."/>
-      <div className="container">
+      <Wrapper divName="container">
         <Search handleSearch={handleInputChange} />
         <Table users={users} sort={sortByName}/>
-      </div>
+      </Wrapper>
     </div>
   );
-}
+};
 
 export default App;

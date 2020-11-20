@@ -6,10 +6,10 @@ const Search = (props) => {
             onChange={props.handleSearch}
             type="text"
             className="form-control"
-            placeholder="Search users"
+            placeholder="Search by last name"
             />
       </div>
-    )
-}
+    );
+};
 
 export default Search;

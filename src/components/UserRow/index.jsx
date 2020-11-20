@@ -15,7 +15,7 @@ const UserRow = (props) => {
             <td>{email}</td>
             <td>{dob}</td>
         </tr>
-    )
-}
+    );
+};
 
 export default UserRow;
