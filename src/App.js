@@ -12,7 +12,7 @@ function App() {
   const [originalUsers, setOriginalUsers] = useState([]);
 
   useEffect(() => {
-    axios.get("https://randomuser.me/api/?results=10&nat=us")
+    axios.get("https://randomuser.me/api/?results=50&nat=us")
       .then((res) => {
         setOriginalUsers(res.data.results);
         setUsers(res.data.results);
