@@ -1,16 +1,14 @@
 import UserRow from "../UserRow";
-import './Table.css';
-
 
 const Table = (props) => {
 
     return (
-        <table>
+        <table className="table">
         <tr>
-          <td>image</td>
+          <td>Photo</td>
           <td><button className="btn btn-info" onClick={props.sort}>Sort by name</button></td>
-          <td>phone</td>
-          <td>email</td>
+          <td>Phone</td>
+          <td>Email</td>
           <td>DOB</td>
         </tr>
         {props.users.map((user) => {

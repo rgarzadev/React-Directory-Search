@@ -35,8 +35,10 @@ function App() {
   return (
     <div className="App">
       <Header headerText="Employee Directory" headerSubText="Search and sort employees by last name."/>
-      <Search handleSearch={handleInputChange} />
-      <Table users={users} sort={sortByName}/>
+      <div className="container">
+        <Search handleSearch={handleInputChange} />
+        <Table users={users} sort={sortByName}/>
+      </div>
     </div>
   );
 }
